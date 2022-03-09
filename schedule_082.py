@@ -21,9 +21,10 @@ class Schedule(object):
         self.ddd[f'{other.hour:02d}:{other.minute:02d}'] = f'({other.duration} minutes)'
 
     def __str__(self):
+        a = []
+        r = sorted(self.ddd.items())
         mylist = []
         for k, v in sorted(self.ddd.items()):
           mylist.append(f'{k} {v}')
         output = '\n'.join(mylist)
         return f'Schedule\n--------\n{output}\nMeetings today: {len(self.ddd)}'
-    
